@@ -1,0 +1,4 @@
+<lcgdict>
+  <class name="examplepackage::ExampleProduct"/>
+  <class name="edm::Wrapper<examplepackage::ExampleProduct>"/>
+</lcgdict>
