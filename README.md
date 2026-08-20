@@ -1,4 +1,4 @@
-# Example package that uses Stithced
+# Example package that uses Stitched
 
 This package demonstrates how the [Stitched](https://github.com/code4hep/stitched-alpha2) framework can be used.
 
