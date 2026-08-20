@@ -15,8 +15,3 @@ add_link_options(LINKER:-z,defs)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 add_subdirectory(Example)
-
-stitched_generate_plugincache(
-  PLUGIN_TARGETS
-  ExampleModulesPlugin
-)
