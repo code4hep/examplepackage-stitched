@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
-project(Example)
+project(Example VERSION 1.0.0 LANGUAGES CXX)
+
+# Set C++ standard (C++20 required for concepts)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Include GNUInstallDirs early so variables are available for environment scripts
 include(GNUInstallDirs)
