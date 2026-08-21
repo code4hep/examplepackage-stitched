@@ -19,4 +19,30 @@ add_link_options(LINKER:-z,defs)
 # Set output directories
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
+# Add subdirectories
 add_subdirectory(Example)
+
+# Install python
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/python
+        DESTINATION .)
+
+# Configure environment setup scripts
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/example_env.sh.in
+    ${CMAKE_CURRENT_BINARY_DIR}/example_env.sh
+    @ONLY
+)
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/example_env.csh.in
+    ${CMAKE_CURRENT_BINARY_DIR}/example_env.csh
+    @ONLY
+)
+
+
+# Install environment scripts
+install(PROGRAMS
+    ${CMAKE_CURRENT_BINARY_DIR}/example_env.sh
+    ${CMAKE_CURRENT_BINARY_DIR}/example_env.csh
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

@@ -36,6 +36,8 @@ target_link_libraries(Example_DataFormats
         ROOT::Core
 )
 
+install(TARGETS Example_DataFormats EXPORT ExampleTargets FILE_SET HEADERS)
+
 set_target_properties(Example_DataFormats PROPERTIES
     VERSION 1.0.0
     SOVERSION 1

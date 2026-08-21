@@ -1,0 +1,27 @@
+#!/bin/bash
+# Example packaget setup script
+# Source this file after Stitched's file to set up your environment to use
+
+# Installation directories
+setenv EXAMPLE_BASE "@CMAKE_INSTALL_PREFIX@"
+setenv EXAMPLE_LIB "${EXAMPLE_BASE}/@CMAKE_INSTALL_LIBDIR@"
+setenv EXAMPLE_PYTHON "${EXAMPLE_BASE}/python"
+
+# Add libraries to LD_LIBRARY_PATH
+if ( ! $?LD_LIBRARY_PATH ) then
+    setenv LD_LIBRARY_PATH "${EXAMPLE_LIB}"
+else
+    setenv LD_LIBRARY_PATH "${EXAMPLE_LIB}:${LD_LIBRARY_PATH}"
+endfi
+
+# Add Python and library directories to PYTHONPATH
+if (! $?PYTHONPATH ) then
+    setenv PYTHONPATH "${EXAMPLE_PYTHON}:${EXAMPLE_LIB}"
+else
+    setenv  PYTHONPATH "${EXAMPLE_PYTHON}:${EXAMPLE_LIB}:${PYTHONPATH}"
+fi
+
+echo "Example package's  environment configured:"
+echo "  EXAMPLE_BASE: ${EXAMPLE_BASE}"
+echo "  Libraries in LD_LIBRARY_PATH"
+echo "  Python modules in PYTHONPATH"
