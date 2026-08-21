@@ -24,13 +24,27 @@ spack install stitched
 spack load stitched
 source $(which stitched_env.sh)
 
-# Clone and build the test package
-git clone https://github.com/code4hep/examplepackage-stitched.git
-cd examplepackage-stitched
+# Clone the test package
+git clone https://github.com/code4hep/stitched-example.git
+
+Method 1: build it directly by yourself
+```
+cd stitched-example
 cmake -S . -B build
 cd build
 cmake --build
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib
+source example_env.sh
 cd ..
 cmsRun examplepackage_cfg.py
+```
+
+Method 2: spack development environment
+```
+mkdir dev-env
+spack env create -d dev-env
+spack env activate dev-env
+spack develop --path stitched-example
+spack install stitched-example
+source $(which example_env.sh)
+cmsRun stitched-example/examplepackage_cfg.py
 ```
