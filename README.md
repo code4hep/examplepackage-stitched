@@ -28,7 +28,6 @@ source $(which stitched_env.sh)
 git clone https://github.com/code4hep/stitched-example.git
 
 Method 1: build it directly by yourself
-```
 cd stitched-example
 cmake -S . -B build
 cd build
@@ -36,10 +35,8 @@ cmake --build
 source example_env.sh
 cd ..
 cmsRun examplepackage_cfg.py
-```
 
 Method 2: spack development environment
-```
 mkdir dev-env
 spack env create -d dev-env
 spack env activate dev-env
