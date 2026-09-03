@@ -22,10 +22,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 # Add subdirectories
 add_subdirectory(Example)
 
-# Install python
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/python
-        DESTINATION .)
-
 # Configure environment setup scripts
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/example_env.sh.in
